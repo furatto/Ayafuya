@@ -44,6 +44,7 @@ def main(n):
     elif select == "2":  # データ削除プログラム
         os.system('clear')
         name = input("削除するコマンド名を入力してください:")
+        delete_DB(name)
         return main(n)
     elif select == "3":  # データ参照プログラム
         os.system('clear')
@@ -100,7 +101,7 @@ def search_DB(name):
 
 
 def delete_DB(name):
-    cur.execute("DELETE FROM Main WHERE {0}".format(name))
+    cur.execute("DELETE FROM Main WHERE name = '{0}'".format(name))
 
 
 if __name__ == "__main__":
